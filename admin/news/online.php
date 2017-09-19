@@ -1,7 +1,5 @@
 <?php
-/*
-发布信息
-*/
+/*发布新闻信息*/
   header("content-type:text/html;charset=utf-8");
   //连接数据库
   require_once '../connect.php';

@@ -77,25 +77,51 @@
 		<p>地址：<span>四川省绵阳市涪城区青义镇西南科技大学老区</span></p> -->
 	</div>
 	<div class="m_pagination">
-		<span>首页</span>
-		<span>上一页</span>
-		<span>下一页</span>
-		<span>尾页</span>
+		<span>上一条</span>
+		<input type="text" name="mesnum" value="1">
+		<span>跳转</span>
+		<span>下一条</span>
 	</div>
 </div>
 <script type="text/javascript">
 (function(){
     // var $contain = $('#manage-container');
-
+            var $pagination_input = $('#messageDetail .m_pagination input').eq(0);
 	var $detail = $('#messageDetail .m_detail');
-	var $pagination = $('#messageDetail .m_pagination');
+	var $pagination = $('#messageDetail .m_pagination span');
 	setTimeout(function(){
 		$detail.css('right','0px');
 	},500);
 
-
-	$pagination.children().click(function(){
-		alert($(this).html())
+	//点击上一条和下一条
+	$pagination.click(function(){
+	    var index = $(this).index();
+	    if (index == 0) {
+	       $pagination_input.val($pagination_input.val()-1);
+	       if ($pagination_input.val()==0) {
+	            $pagination_input.val(1);
+	       } 
+	       load($pagination_input.val());
+	    }
+	    if (index == 3) {
+	       $pagination_input.val(parseInt($pagination_input.val())+1); 
+	       var num = getMesNum();
+	       if (parseInt($pagination_input.val())>=num) {
+	            $pagination_input.val(num);
+	       }
+	       load($pagination_input.val());
+	    }
+	    if (index == 2) {
+	    	var num2 = getMesNum();
+	    	if (parseInt($pagination_input.val())>num2) {
+	    		alert("页数超过最大页数！跳转到最后一页！");
+	            $pagination_input.val(num2);
+	        }
+	        if ($pagination_input.val()<=0) {
+	            $pagination_input.val(1);
+	        } 
+	    	load($pagination_input.val());
+	    }
 	})
 })();
 </script>

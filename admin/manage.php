@@ -49,29 +49,6 @@
     b.display{
         display: none;
     }/*匹配id*/
-    #alertdiv{
-        width: 440px;
-        height: 140px;
-        border: 1px solid #EAEAEA;
-        background: #FDFDFD;
-        border-radius: 5px;
-        box-shadow: 0px 0px 2px #EAEAEA;
-        position: absolute;
-        top: -200px;
-        left: 50%;
-        margin-left: -220px;
-        padding: 10px 20px;
-        transition: all 0.5s;
-        /*display: none;*/
-    }
-    #alertdiv nav{
-        font-size: 18px;
-    }
-    #alertdiv p{
-       font-size: 12px;
-       margin-top: 10px;
-    }/*弹出框*/
-
 /*````````````````````````主页面·······························*/
     #manage-nav{
         width: 18%;
@@ -154,7 +131,7 @@
         display: block;
         margin: 100px auto;
     }
-    #new input {
+    #new input,.news_product input {
         width: 88%;
         height: 48px;
         line-height: 48px;
@@ -167,7 +144,7 @@
         margin: 28px auto;
         outline: none;
     }
-    #new input:last-child{
+    #new input:last-child,.news_product input:last-child{
         cursor:pointer;
         background: #38adff;
         color: white;
@@ -198,18 +175,13 @@
     </div>
 
 <script>
-// 公共js
-    function alertdiv(data){
-         var $alertdiv = $("#alertdiv");
-         $alertdiv.find("p").html(data);
-         $alertdiv.css({"top":"100px"});
-    };
+
 (function(){
     // ajax 的load方法加载页面
         var $contain = $('#manage-container');
         var $li = $('#nav li');
         var index = 0;
-        var arr=['replaceImg/img.php','news/news.php','news/list.php','product/addProduct.php','product/product.php','message/message.php','password/password.php',]
+        var arr=['replaceImg/img.php','news/news.php','news/list.php','product/product.php','product/list.php','message/message.php','password/password.php',]
         $contain.load('replaceImg/img.php');
 
         $li.click(function(){
@@ -219,11 +191,7 @@
         });
 
 }());
-
- </script>
-
-
+</script>
 </body>
 </html>
-
 

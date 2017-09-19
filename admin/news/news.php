@@ -1,5 +1,5 @@
 <h3>增加新闻</h3>
-<div id="new">
+<div id="new" class="news_product">
     <form>
     	<input id="news_title" name="news_title" type="text" placeholder="请输入标题">
 
@@ -9,10 +9,7 @@
         <input id="sub" type="button" value="保存">
     </form>
 </div>
-<div id="alertdiv">
-    <nav>温馨提示：</nav>
-    <p></p>
-</div>
+
     <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
     <script type="text/javascript" src="wangEditor.min.js"></script>
     <script type="text/javascript">
@@ -38,11 +35,11 @@
             var Da = year +'-'+ month+'-'+dat;
         //发送新闻信息
             if ( nle == '' && til == '<p><br></p>') {
-                alert('请求输入新闻标题和内容！')
+                alert('请求输入标题和内容！')
             }else if(nle == ''){
-                alert('请求输入新闻标题！')
+                alert('请求输入标题！')
             }else if(til == '<p><br></p>'){
-                alert('请求输入新闻内容！')
+                alert('请求输入内容！')
             }
             else{
                 // $("#sub").attr('type','submit');
@@ -52,12 +49,10 @@
                     news_time:Da,
                     news_id:id,
                    },function(data,status){
-                        alertdiv(data);
+                        alert(data);
                         $("#sub").attr("disabled","disabled");
-                        setTimeout(function(){
-                            $('#manage-container').load('news/list.php');
-                            $('#nav li:nth-of-type(3)').addClass('hover').siblings().removeClass('hover');//左边栏切换效果
-                        },2000)
+                        $('#manage-container').load('news/list.php');
+                        $('#nav li:nth-of-type(3)').addClass('hover').siblings().removeClass('hover');//左边栏切换效果
                 });
             }
        });

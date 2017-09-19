@@ -11,11 +11,13 @@
 		$sql = "select * FROM messages WHERE id='". $index ."'";
 
 		$result = mysqli_query($conn_db,$sql);
+		if ($result) {
+			$row = mysqli_fetch_assoc($result);
+			$array[] = $row;
 
-		$row = mysqli_fetch_assoc($result);
-		$array[] = $row;
-
-		echo json_encode($array);
-
-
+			echo json_encode($array);
+		}else{
+			echo "未查到数据！！！";
+		}
+		
 	}

@@ -19,8 +19,13 @@
  案例展示（同产品管理）
  留言管理（留言信息的管理）
 <!-- 产品管理表 -->
-
-<!-- 案列展示表 -->
+	$sql="create table products(
+		productid varchar(50) not null primary key,
+    	title varchar(100) not null,
+    	content varchar(10000) not null,
+       	newstime varchar(50) not null,
+       	online varchar(50) not null
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 <!-- 留言管理表 -->
  	$sql="create table messages(
@@ -28,9 +33,10 @@
  		name varchar(50),
      	tel varchar(50),
     	address varchar(100),
+        time varchar(50) not null,
      	mail varchar(50) not null,
      	qq varchar(50),
-     	theme varchar(50) not null,
+     	theme varchar(100) not null,
      	content varchar(10000) not null
  	) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 

@@ -30,7 +30,8 @@
 		position: relative;
 		top: -285px;
 	}
-	.reply button{
+	.reply .btn{
+		width: 100px;
 		background: #38adff;
 		border: 2px solid transparent;
 		border-radius: 2px;
@@ -42,18 +43,15 @@
 		margin: 0 auto;
 		display: block;
 	}
-	.reply button:hover{
+	.reply .btn:hover{
 		border: 2px solid #3ea3ec;;
 		color: #d6d1d1;
 	}
 </style>
 <div class="page reply" >
-	<p>主题<input></input></p>
-	<p><span>正文</span><textarea></textarea></p>
-	<button class="btn">回复</button>
+<form action="message/mail.php" method="post">
+	<p>主题<input name="title"></input></p>
+	<p><span>正文</span><textarea name="content"></textarea></p>
+	<input type="submit" class="btn" name="sub">
+</form>
 </div>
-<script type="text/javascript">
-	$(".reply button.btn").click(function(){
-		alert("回复")
-	})
-</script>

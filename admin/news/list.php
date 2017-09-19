@@ -220,12 +220,12 @@ $.post("news/getnews.php",{}, function(data,state){
                     var $news_title = $("#news_title");
                     var $news_content = $("#editor .w-e-text");
                     var $newsid= $("#new b.display");
-
+                    var $sub = $("#sub");
                     $newsid.html(data[0].newsid);
                     $news_title.val(data[0].title);
                     $news_content.html(data[0].content);
 
-                    $("#sub").click(function(){
+                    $sub.click(function(){
                         // $("#sub").attr('type','submit');
                      //获取title和content内容
                         var til = $.trim($("#editor .w-e-text").html());
@@ -255,9 +255,11 @@ $.post("news/getnews.php",{}, function(data,state){
                                  news_time:Da,
                                  news_id:id,
                                 },function(data,status){
+                                    alert(data);
                                     var $news_id = $newsid.html();
                                     $.post("news/removenews.php",{news_id:$news_id},function(data){
-                                        $contain.load('news/list.php');
+                                        $sub.attr("disabled","disabled");
+                                            $contain.load('news/list.php');
                                     });
                             });
                         }
